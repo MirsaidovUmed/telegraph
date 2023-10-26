@@ -1,21 +1,4 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            color: #333;
-        }
-        h2 {
-            color: #666;
-        }
-        p {
-            text-align: justify;
-        }
-    </style>
-</head>
 <body>
     <h1>Skillbox Telegraph Project</h1>
     <p>Это первый проект, который я изучил и разработал в рамках курса Skillbox.</p>
