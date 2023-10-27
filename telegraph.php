@@ -9,30 +9,30 @@ function add(array &$textStorage, string $title, string $text): void
 }
 
 main($textStorage);
-function remove(&$textStorage): bool
+function remove(&$textStorage, int $index): bool
 {
-    if (isset($textStorage)) {
-        unset($textStorage[5]);
+    if (isset($textStorage[$index])) {
+        unset($textStorage[$index]);
         return true;
     } else {
         return false;
     }
 }
 
-remove($textStorage);
+remove($textStorage,5);
 
-function edit(array &$textStorage, string $newTitle, string $newText): bool
+function edit(array &$textStorage, string $newTitle, string $newText, int $index): bool
 {
-    if (isset($textStorage[0])) {
-        $textStorage[0]['title'] = $newTitle;
-        $textStorage[0]['text'] = $newText;
+    if (isset($textStorage[$index])) {
+        $textStorage[$index]['title'] = $newTitle;
+        $textStorage[$index]['text'] = $newText;
         return true;
     } else {
         return false;
     }
 }
 
-edit($textStorage, 'Заголовок', 'Текст');
+edit($textStorage, 0, 'Заголовок', 'Текст');
 print_r($textStorage);
 
 
