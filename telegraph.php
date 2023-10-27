@@ -1,5 +1,6 @@
 <?php
 
+
 $textStorage = array();
 
 function add(array &$textStorage, string $title, string $text): void
@@ -8,7 +9,6 @@ function add(array &$textStorage, string $title, string $text): void
     $textStorage[] = $newText;
 }
 
-main($textStorage);
 function remove(&$textStorage, int $index): bool
 {
     if (isset($textStorage[$index])) {
@@ -19,9 +19,7 @@ function remove(&$textStorage, int $index): bool
     }
 }
 
-remove($textStorage,5);
-
-function edit(array &$textStorage, string $newTitle, string $newText, int $index): bool
+function edit(array &$textStorage, int $index, string $newTitle, string $newText): bool
 {
     if (isset($textStorage[$index])) {
         $textStorage[$index]['title'] = $newTitle;
@@ -32,17 +30,21 @@ function edit(array &$textStorage, string $newTitle, string $newText, int $index
     }
 }
 
-edit($textStorage, 0, 'Заголовок', 'Текст');
-print_r($textStorage);
-
-
 function main(&$textStorage): void
 {
-    $title = readline('Введите заголовок: ');
-    $text = readline('Введите текст: ');
-    while ($title !== '' && $text !== '') {
-        add($textStorage, $title, $text);
+    while (true) {
         $title = readline('Введите заголовок: ');
         $text = readline('Введите текст: ');
+
+        if ($title === '' || $text === '') {
+            break;
+        }
+
+        add($textStorage, $title, $text);
     }
 }
+
+main($textStorage);
+remove($textStorage, 5);
+edit($textStorage, 0, 'Заголовок', 'Текст');
+print_r($textStorage);
